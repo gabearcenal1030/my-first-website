@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.left {
+float: left;
+width: 50%;
