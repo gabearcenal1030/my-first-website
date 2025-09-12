@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>
+        Exercise 1: Create a Basic Login Form (HTML Only)
+    </h1>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+    <h1>
+        Exercise 2: Add Email Input & Placeholder
+    </h1>
+    <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email">
+    </form>
+    <h1>
+        Exercise 3: Add Radio Buttons & Checkboxes
+    </h1>
+    <p>
+        Choose your role:
+    </p>
+    <input type="radio" id="student" name="role" value="student">
+    <label for="student">Student</label>
+    <input type="radio" id="teacher" name="role" value="teacher">
+    <label for="teacher">Teacher</label>
+
+    <p>
+        Select your interests:
+    </p>
+    <input type="checkbox" id="html" name="interest" value="HTML">
+    <label for="html">HTML</label>
+    <input type="checkbox" id="css" name="interest" value="CSS">
+    <label for="css">CSS</label>
+    <h1>
+        Exercise 4: Add a Dropdown (Select Menu)
+    </h1>
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        <option value="ph">Philippines</option>
+        <option value="us">United States</option>
+        <option value="jp">Japan</option>
+    </select>
+    <h1>
+        Exercise 5: Add a Textarea
+    </h1>
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" rows="4" cols="40"></textarea>
+    <h1>
+        Exercise 6: Form Validation with HTML Attributes
+    </h1>
+    <input type="text" name="username" required minlength="3"
+    maxlength="10">
+
+    <input type="email" name="email" required>
+    <h1>
+        Exercise 7: Add JS Alert on Submit (Native JavaScript)
+    </h1>
+    <form id="loginForm">
+        <input type="text" id="username" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit",function(event) {
+            event.preventDefault(); 
+            alert("Form submitted!");
+        }) ;
+    </script>
+    <h1>
+        Exercise 8: Show Live Character Count (Native JavaScript)
+    </h1>
+    <textarea id="bio" maxlength="100"></textarea>
+    <p id="count">0/100</p>
+
+    <script>
+        const bio = document.getElementById("bio");
+        const count = document.getElementById("count");
+
+        bio.addEventListener("input", function() {
+            count.textContent = bio.value.length + "/100";
+        });
+    </script>
+    <h1>
+        Exercise 9: Toggle Password Visibility (Native JavaScript)
+    </h1>
+    <input type="password" id="pwd">
+    <button type="button" onceclick="togglePwd()">Show/Hidden</button>
+
+    <script>
+        function togglePwd() {
+            const pwd = document.getElementById("pwd");
+            pwd.type = pwd.type === "password" ? "text" : "password";
+        }
+    </script>
+    <h1>
+        Exercise 10: jQuery Version of Submit Alert
+    </h1>
+    <form id="myForm">
+        <input type="text" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $("#myForm").submit(function(event) {
+            event.preventDefault();
+            alert("Form submitted with jQuery!");
+        });
+    </script>
+    <h1>
+        Exercise 11: jQuery Show/Hide Password
+    </h1>
+    <input type="password" id="pwd">
+    <button id="toggle">Show/Hidden</button>
+
+    <script>
+        $("#toggle").click(function() {
+            let pwd = $("#pwd");
+            pwd.attr("type", pwd.attr("type") === "password" ? "text" : "password");
+        });
+    </script>
+    <h1>
+        Exercise 12: jQuery Live Character Count
+    </h1>
+    <textarea id="bio" maxlength="100"></textarea>
+    <p id="count">0/100</p>
+
+    <script>
+        $("#bio").on("input", function() {
+            $("#count").text($(this).val().length + "/100");
+        });
+    </script>
+    <h1>
+        Exercise 13: Validate Empty Fields with jQuery
+    </h1>
+    <form id="login">
+        <input type="text" id="user" placeholder="Username"><br>
+        <input type="password" id="pass" placeholder="Password"><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        $("#login").submit(function(e){
+            e.preventDefault();
+            if($("#user").val() === "" || $("pass").val() === ""){
+                alert("Please fill in all fields.");
+            } else {
+                alert("Login successful");
+            }
+        });
+    </script>
+    <h1>Exercise 14: Add CSS Highlight for Errors (with jQuery)</h1>
+    <style> 
+        .error {border: 2px solid red;}
+    </style>
+
+    <form id="formCheck">
+        <input type="text" id="name" placeholder="Name">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script> 
+        $("#formCheck").submit(function(e){
+            e.preventDefault();
+            if($("name").val() === ""){
+                $("name").addClass("error");
+
+            }else{
+                $("name").removeClass("error");
+                alert("Form submitted");
+            }
+        });
+    </script>
+     <h1>Exercise 15: Build a Full Registration Form (HTML + jQuery)</h1>
+  <h2>User Information</h2>
+
+  <form id="userinfo">
+    <label for="uname">Username:</label>
+    <input type="text" id="uname" name="uname" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your Email" required><br><br>
+
+    <label for="pword">Password:</label>
+    <input type="password" id="pword" name="pword" required>
+    <button id="toggle" type="button">Show/Hide</button><br><br>
+
+    <label for="pword1">Confirm Password:</label>
+    <input type="password" id="pword1" name="pword1" required><br><br>
+
+    <p>Choose your Gender:</p>
+    <input type="radio" name="gender" value="male" required> <label>Male</label>
+    <input type="radio" name="gender" value="female"> <label>Female</label>
+    <input type="radio" name="gender" value="rathernotsay"> <label>Rather not say</label><br><br>
+
+    <p>Pick your Interests:</p>
+    <input type="checkbox" id="programming" name="programming">
+    <label for="programming">Programming</label>
+    <input type="checkbox" id="gaming" name="gaming">
+    <label for="gaming">Gaming</label>
+    <input type="checkbox" id="volleyball" name="volleyball">
+    <label for="volleyball">Volleyball</label><br><br>
+
+    <label for="country">Country:</label>
+    <select id="country" name="country" required>
+      <option value="">--Select--</option>
+      <option value="ph">Philippines</option>
+      <option value="us">United States</option>
+      <option value="jp">Japan</option>
+    </select><br><br>
+    
+    <label for="bio">Bio:</label>
+    <textarea id="bio" maxlength="100" rows="4"></textarea>
+    <p id="count">0/100</p>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Toggle password
+    $("#toggle").click(function() {
+      let pwd = $("#pword");
+      pwd.attr("type", pwd.attr("type") === "password" ? "text" : "password");
+    });
+
+    // Bio character counter
+    $("#bio").on("input", function() {
+      $("#count").text($(this).val().length + "/100");
+    });
+
+    // Form validation
+    $("#userinfo").submit(function(e) {
+      e.preventDefault();
+      let valid = true;
+      $("#userinfo input, #userinfo select, #userinfo textarea").removeClass("error");
+
+      if ($("#uname").val().trim() === "") { $("#uname").addClass("error"); valid = false; }
+      if ($("#email").val().trim() === "") { $("#email").addClass("error"); valid = false; }
+      if ($("#pword").val().trim() === "") { $("#pword").addClass("error"); valid = false; }
+      if ($("#pword1").val().trim() === "") { $("#pword1").addClass("error"); valid = false; }
+      if (!$("input[name='gender']:checked").val()) { valid = false; }
+      if ($("#country").val() === "") { $("#country").addClass("error"); valid = false; }
+
+      if ($("#pword").val() !== $("#pword1").val()) {
+        $("#pword1").addClass("error");
+        alert("Passwords do not match!");
+        valid = false;
+      }
+
+      if (valid) {
+        alert("Form submitted successfully!");
+        this.submit();
+      }
+    });
+  </script>
+  <style>
+    .error {
+        border: 2px solid red;
+    }
+  </style>
+</body>
+</html>
